@@ -2,9 +2,8 @@
 import 'produto.dart';
 
 class UsadoProduto extends Produto {
-  
   DateTime? dataFabricacao;
-  
+
   UsadoProduto({
     String? nome,
     double? preco,
@@ -14,7 +13,11 @@ class UsadoProduto extends Produto {
           preco: preco,
         );
 
-  
-    @override
-  String toString() => 'UsadoProduto(dataFabricacao: $dataFabricacao)';
+  DateTime dataFabricaca02({required dia, required mes, required ano}) {
+    dataFabricacao = DateTime.utc(ano, mes, dia);
+    return dataFabricacao!;
+  }
+
+  @override
+  String toString() => '$nome (usado) - R\$ ${preco!.toStringAsFixed(2)} - (Data de fabricação: ${dataFabricacao!.day}/${dataFabricacao!.month}/${dataFabricacao!.year})';
 }

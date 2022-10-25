@@ -21,6 +21,5 @@ class ImportProduto extends Produto {
   }
 
   @override
-  String toString() =>
-      'Nome: $nome, Preço: $preco, Taxa de Importação: $taxaImport.';
+  String toString() => '$nome - R\$ ${preco!.toStringAsFixed(2)} - (Taxa de importação: R\$ ${taxaImport!.toStringAsFixed(2)}.)';
 }

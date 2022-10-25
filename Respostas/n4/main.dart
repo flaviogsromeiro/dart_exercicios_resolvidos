@@ -1,13 +1,69 @@
 import 'Entities/import_produto.dart';
 import 'Entities/produto.dart';
+import 'dart:io';
+import 'Entities/usado_produto.dart';
 
 void main() {
-  ImportProduto p = ImportProduto();
+  // VARIÁVEIS DE APOIO
+  int? qtdProdutos;
+  int? opcao;
+  int? dia, mes, ano;
 
-  p.nome = 'Iphone';
-  p.preco = 3.000;
-  p.taxaImport = 20.00;
-  p.precoTotal(p.taxaImport!);
+  // OBJETOS
+  Produto c = Produto();
+  ImportProduto im = ImportProduto();
+  UsadoProduto u = UsadoProduto();
 
-  print(p);
+  // PROGRAMA
+
+  print('\nOlá, Usuário!');
+  stdout.write('Quantos produtos você comprou: ');
+  qtdProdutos = int.tryParse(stdin.readLineSync()!);
+
+  List<dynamic> listProdutos = List.filled(qtdProdutos!, 0);
+
+  for (var i = 0; i < listProdutos.length; i++) {
+    print('\nDados do Produto #${i + 1}:');
+    print('\nSelecione uma opção: \n(1) COMPRADO\n(2) USADO\n(3) IMPORTADO');
+    opcao = int.tryParse(stdin.readLineSync()!);
+
+    switch (opcao) {
+      case 1:
+        stdout.write('\nNome: ');
+        c.nome = stdin.readLineSync();
+        stdout.write('Preço: R\$ ');
+        c.preco = double.tryParse(stdin.readLineSync()!);
+        break;
+      case 2:
+        stdout.write('\nNome: ');
+        u.nome = stdin.readLineSync();
+        stdout.write('Preço: ');
+        u.preco = double.tryParse(stdin.readLineSync()!);
+        print('Data de fabricação:');
+        stdout.write('Dia: ');
+        dia = int.tryParse(stdin.readLineSync()!);
+        stdout.write('Mês: ');
+        mes = int.tryParse(stdin.readLineSync()!);
+        stdout.write('Ano: ');
+        ano = int.tryParse(stdin.readLineSync()!);
+
+        break;
+      case 3:
+        stdout.write('\nNome: ');
+        im.nome = stdin.readLineSync();
+        stdout.write('Preço: ');
+        im.precoTotal(double.tryParse(stdin.readLineSync()!)!);
+
+        break;
+      default:
+        while (true) {
+          print('Opção inválida. Digite novamente');
+          opcao = int.tryParse(stdin.readLineSync()!);
+          if (opcao != 1 && opcao != 2 && opcao != 3) {
+            print('Opção inváida. \nPrograma encerrado');
+            break;
+          }
+        }
+    }
+  }
 }

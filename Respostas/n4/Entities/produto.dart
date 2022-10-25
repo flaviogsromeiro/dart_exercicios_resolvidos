@@ -9,5 +9,5 @@ class Produto {
   });
 
   @override
-  String toString() => '$nome,  $preco';
+  String toString() => '$nome - R\$ $preco';
 }
