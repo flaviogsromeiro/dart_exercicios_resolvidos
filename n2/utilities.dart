@@ -8,9 +8,16 @@ class Utilities {
     this.nulos,
   });
 
-  double? porcentagemNulos(double totalVotos) {
-    if (nulos != null) {
+  double? porcentagemNulos(int? totalVotos) {
+    if (totalVotos != null) {
       return ((this.nulos! / totalVotos) * 100);
+    }
+    return null;
+  }
+
+  double? porcentagemBrancos(int? totalVotos) {
+    if (totalVotos != null) {
+      return ((this.brancos! / totalVotos) * 100);
     }
     return null;
   }
