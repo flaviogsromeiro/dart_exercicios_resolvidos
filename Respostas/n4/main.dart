@@ -23,7 +23,7 @@ void main() {
   List<dynamic> listProdutos = List.filled(qtdProdutos!, 0);
 
   for (var i = 0; i < listProdutos.length; i++) {
-    print('\nDados do Produto #${i + 1}:');
+    print('\nDados do Produto \#${i + 1}:');
     print('\nSelecione uma opção: \n(1) COMPRADO\n(2) USADO\n(3) IMPORTADO');
     opcao = int.tryParse(stdin.readLineSync()!);
 
@@ -52,7 +52,10 @@ void main() {
         stdout.write('\nNome: ');
         im.nome = stdin.readLineSync();
         stdout.write('Preço: ');
-        im.precoTotal(double.tryParse(stdin.readLineSync()!)!);
+        im.preco = double.tryParse(stdin.readLineSync()!);
+        stdout.write('Taxa de Importação: ');
+        im.taxaImport = double.tryParse(stdin.readLineSync()!);
+        im.precoTotal(im.taxaImport!);
 
         break;
       default:
@@ -66,4 +69,9 @@ void main() {
         }
     }
   }
+
+  print('\n--------------------- RESULTADO ----------------------\n');
+  print(im);
+  print(c);
+  print(u);
 }

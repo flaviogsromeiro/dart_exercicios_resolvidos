@@ -7,6 +7,7 @@ class ImportProduto extends Produto {
   ImportProduto({
     String? nome,
     double? preco,
+    
     this.taxaImport,
   }) : super(
           nome: nome,

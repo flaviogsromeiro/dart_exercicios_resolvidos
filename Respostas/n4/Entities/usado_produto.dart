@@ -14,10 +14,11 @@ class UsadoProduto extends Produto {
         );
 
   DateTime dataFabricaca02({required dia, required mes, required ano}) {
-    dataFabricacao = DateTime.utc(ano, mes, dia);
+    dataFabricacao = DateTime.utc(ano!, mes!, dia!);
     return dataFabricacao!;
   }
 
   @override
-  String toString() => '$nome (usado) - R\$ ${preco!.toStringAsFixed(2)} - (Data de fabricação: ${dataFabricacao!.day}/${dataFabricacao!.month}/${dataFabricacao!.year})';
+  
+  String toString() =>  '$nome (usado) - R\$ ${preco != null ? preco!.toStringAsFixed(2) : null} - (Data de fabricação: ${dataFabricacao !=null ? dataFabricacao!.day : null}/${dataFabricacao !=null ?  dataFabricacao!.month : null}/${dataFabricacao !=null ? dataFabricacao!.year : null})';
 }
