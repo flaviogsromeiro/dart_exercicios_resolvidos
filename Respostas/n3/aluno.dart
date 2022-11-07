@@ -3,7 +3,6 @@ import 'dart:io';
 void main() {
   String? nome;
   double? nota;
-  String? input;
   String output;
 
   stdout.write('Olá, Usuário!');
